@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TDBench: Tabular Data Distillation Benchmark</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>TDBench: Tabular Data Distillation Benchmark</h1>
+    </header>
+    <main>
+      <section class="abstract" id="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Training a new model on a large dataset is an increasingly difficult
+          task in machine learning due to the growing size of datasets from
+          enhanced collection methods. Dataset distillation, a technique that
+          addresses this issue by producing a smaller representative dataset,
+          can address this issue by providing <b>distilled</b> datasets that
+          contain most information from the original datasets. Past works have
+          proposed <i>model centric</i> approaches, specifically considering
+          neural networks trained on image datasets as target models. However,
+          the nature of tabular datasets compared to that of image datasets add
+          new challenges to exsisting image distillation methods. Tabular
+          datasets contain samples in a single dimension, unlike the two (or
+          three) dimensional pixel grids found in image datasets. In addition,
+          tree-based models such as XGBoost often outperform neural
+          network-based models, which can be challenging for previous NN-based
+          distillation methods from image datasets. Thus, we seek to identify
+          whether image-based data distillation methods can be directly applied
+          to tabular datasets, and whether there exists other methods that
+          outperform previous methods, examining various methods from a
+          <i>model agnostic</i> point of view.
+        </p>
+      </section>
+      <section id="plots">
+        <h2>Plots</h2>
+        <div id="plot1"></div>
+        <div id="plot2"></div>
+      </section>
+    </main>
+    <!-- <footer> -->
+    <!--   <p>&copy; 2024 Your Name</p> -->
+    <!-- </footer> -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
