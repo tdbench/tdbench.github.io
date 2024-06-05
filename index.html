@@ -15,25 +15,32 @@
       <section class="abstract" id="abstract">
         <h2>Abstract</h2>
         <p>
-          Training a new model on a large dataset is an increasingly difficult
-          task in machine learning due to the growing size of datasets from
-          enhanced collection methods. Dataset distillation, a technique that
-          addresses this issue by producing a smaller representative dataset,
-          can address this issue by providing <b>distilled</b> datasets that
-          contain most information from the original datasets. Past works have
-          proposed <i>model centric</i> approaches, specifically considering
-          neural networks trained on image datasets as target models. However,
-          the nature of tabular datasets compared to that of image datasets add
-          new challenges to exsisting image distillation methods. Tabular
-          datasets contain samples in a single dimension, unlike the two (or
-          three) dimensional pixel grids found in image datasets. In addition,
-          tree-based models such as XGBoost often outperform neural
-          network-based models, which can be challenging for previous NN-based
-          distillation methods from image datasets. Thus, we seek to identify
-          whether image-based data distillation methods can be directly applied
-          to tabular datasets, and whether there exists other methods that
-          outperform previous methods, examining various methods from a
-          <i>model agnostic</i> point of view.
+          Training ML models on large datasets is an increasingly difficult task
+          due to the growing size of datasets from enhanced collection methods.
+          Dataset distillation, a technique that produces a smaller
+          representative dataset, can address this issue by providing
+          <i>distilled</i> datasets that contain essential information from
+          the original datasets. Past works have proposed <i>model centric</i>
+          approaches, specifically considering neural networks trained on image
+          datasets as target models. However, distinct characteristics of
+          tabular datasets introduce new challenges to existing image
+          distillation methods. Unlike the two (or three) dimensional pixel
+          grids found in image datasets, tabular datasets contain samples in a
+          single dimension. Furthermore, non-neural models such as XGBoost often
+          outperform neural network-based models, which can be challenging for
+          previous NN-based distillation methods for image datasets. This work
+          investigates whether image-based data distillation methods can be
+          directly applied to tabular datasets, and explore alternative methods
+          that may outperform existing techniques. Our approach is <i>model
+          agnostic</i>, examining a range of methods for their effectiveness across
+          different datasets and models. We design a high-level pipeline for
+          tabular data distillation and evaluate 559,130 pipelines in our
+          experiments. Our analysis reveals that simpler methods such as
+          $k$-means and random sampling are able to outperform techniques from
+          image distillation, and that the addition of autoencoders to the
+          pipeline can improve their performance even further. All of our
+          analysis and detailed benchmark results are available
+          at <a href={https://tdbench.github.io}>https://tdbench.github.io</a>.
         </p>
       </section>
       <section id="plots">
