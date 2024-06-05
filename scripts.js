@@ -18,26 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    Plotly.newPlot('plot1', data1, layout1);
+    Plotly.plot('plot1', data1, layout1);
 
-    var trace2 = {
-        x: [1, 2, 3, 4, 5],
-        y: [16, 5, 11, 9, 12],
-        mode: 'lines',
-        type: 'scatter'
-    };
 
-    var data2 = [trace2];
-
-    var layout2 = {
-        title: 'Plot 2',
-        xaxis: {
-            title: 'X Axis',
-        },
-        yaxis: {
-            title: 'Y Axis',
-        }
-    };
-
-    Plotly.newPlot('plot2', data2, layout2);
 });
+
+
+async function loadPlot(jsonFile){
+  try{
+    const response = await fetch(jsonFile);
+    if (!response.ok){
+      throw new Error("Failed to fetch data file.. Status:" + response.statusText)
+    }
+    const plotData = await response.json();
+    // Plotly.plot("")
+    console.log("we got the stuff!")
+  }
+  catch (error){
+    console.error("Error loading plot:", error)
+  }
+}
+
