@@ -31,7 +31,7 @@ async function loadPlot(jsonFile){
       throw new Error("Failed to fetch data file.. Status:" + response.statusText)
     }
     const plotData = await response.json();
-    // Plotly.plot("")
+    Plotly.plot("plot1", plotData)
     console.log("we got the stuff!")
   }
   catch (error){

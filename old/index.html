@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TDBench: Tabular Data Distillation Benchmark</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>TDBench: Tabular Data Distillation Benchmark</h1>
+    </header>
+    <main>
+      <section class="abstract" id="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Training ML models on large datasets is an increasingly difficult task
+          due to the growing size of datasets from enhanced collection methods.
+          Dataset distillation, a technique that produces a smaller
+          representative dataset, can address this issue by providing
+          <i>distilled</i> datasets that contain essential information from
+          the original datasets. Past works have proposed <i>model centric</i>
+          approaches, focused on neural networks trained on image datasets as
+          target models. However, the distinct characteristics of tabular
+          datasets introduce new challenges to existing image distillation
+          methods. Unlike the two (or three) dimensional pixel grids found in
+          image datasets, tabular datasets contain samples in a single
+          dimension. Furthermore, non-neural models such as XGBoost often
+          outperform neural network-based models, which can be challenging for
+          previous NN-based distillation methods for image datasets. This work
+          investigates whether image-based data distillation methods can be
+          directly applied to tabular datasets, and explore alternative
+          approaches that may outperform existing techniques. Our approach is
+          <i>model agnostic</i>, examining a range of methods for their
+          effectiveness across different datasets and models. We design a
+          high-level pipeline for tabular data distillation and evaluate 782,782
+          pipelines in our experiments. Our analysis reveals that simpler
+          methods, such as $k$-means and random sampling, can outperform
+          sophisticated techniques from image distillation when applied to
+          tabular data. Furthermore, adding autoencoders to the pipelines can
+          improve their performance even more. All of our analysis and detailed
+          benchmark results are available at <a href="https://tdbench.github.io">https://tdbench.github.io</a>.
+        </p>
+      </section>
+      <section id="select-pane">
+        <div>
+          <h2>Select a Dataset</h2>
+          <select id="dataset-select" onChange="loadDataset()">
+            <option value="test_table.json">Dataset 1</option>
+            <option value="test_table2.json">Dataset 2</option>
+          </select>
+        </div>
+      </section>
+      <section id="dataset-stats">
+        <h2>Dataset Statistics</h2>
+      </section>
+      <section id="plots">
+        <h2>Plots</h2>
+        <div id="plot1"></div>
+        <div id="plot2"></div>
+        <div class="button" onClick="loadPlot('plot_data/test_table.json')">
+          Press Me
+        </div>
+      </section>
+    </main>
+    <!-- <footer> -->
+    <!--   <p>&copy; 2024 Your Name</p> -->
+    <!-- </footer> -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
