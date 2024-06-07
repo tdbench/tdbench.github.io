@@ -91,7 +91,10 @@
         loadTable("dataset_stats_table", "ds-stats-table-container");
         loadTable("enc_perf_all_table", "enc-perf-table-container");
         loadTable("dd_perf_all_table", "dd-perf-table-container");
-        loadTable("clf_perf_all_FTTransformer_table", "clf-perf-table-container");
+        loadTable(
+          "clf_perf_all_FTTransformer_table",
+          "clf-perf-table-container",
+        );
       });
     </script>
   </head>
@@ -231,7 +234,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Abstract</h2>
+            <h2 class="title is-4">Abstract</h2>
             <div class="content has-text-justified">
               <p>
                 Training ML models on large datasets is an increasingly
@@ -275,11 +278,11 @@
 
     <section class="hero is-small">
       <div class="hero-body">
-        <div class="mb-6">
-          <h3 class="title is-5 has-text-centered *b=8">
+        <div class="container is-widescreen">
+          <h3 class="title is-5 has-text-centered mb-4">
             Overview of Experiments
           </h3>
-          <div class="container is-widescreen">
+          <div>
             <img src="static/images/overview.png" />
             <div class="px-6">
               1. We consider the each of the 23 datasets in their original or
@@ -295,147 +298,149 @@
             </div>
           </div>
         </div>
-        <div class="columns is-widescreen px-6">
-          <div class="column mb-6">
-            <h3 class="title is-5 has-text-centered *b=8">
-              Distill Method Performance
-            </h3>
-            <div class="container is-widescreen">
-              <div id="dd_perf_select" class="select">
-                <select
-                  onchange="loadPlot(`dd_perf_${this.value}_plot`, 'dd-per-plot-frame'); loadTable(`dd_perf_${this.value}_table`, 'dd-perf-table-container');"
+        <div class="container is-widescreen mb-4">
+          <div class="columns">
+            <div class="column">
+              <h3 class="title is-5 has-text-centered my-4">
+                Distill Method Performance
+              </h3>
+              <div class="container is-widescreen">
+                <div id="dd_perf_select" class="select">
+                  <select
+                    onchange="loadPlot(`dd_perf_${this.value}_plot`, 'dd-per-plot-frame'); loadTable(`dd_perf_${this.value}_table`, 'dd-perf-table-container');"
+                  >
+                    <option value="all">All Datasets</option>
+                    <option value="two_d_planes">2dplanes</option>
+                    <option value="amazon_employee_access">
+                      Amazon_employee_access
+                    </option>
+                    <option value="bank_marketing">
+                      Bank_marketing_data_set_UCI
+                    </option>
+                    <option value="tencent_ctr_small">
+                      Click_prediction_small
+                    </option>
+                    <option value="diabetes">Diabetes130US</option>
+                    <option value="magic_telescope">MagicTelescope</option>
+                    <option value="medical_appointments">
+                      Medical-Appointment-No-Shows
+                    </option>
+                    <option value="mini_boo_ne">MiniBooNE</option>
+                    <option value="phishing_websites">PhishingWebsites</option>
+                    <option value="adult">adult</option>
+                    <option value="credit">credit</option>
+                    <option value="credit_default">
+                      default-of-credit-card-clients
+                    </option>
+                    <option value="electricity">electrcity</option>
+                    <option value="elevators">elevators</option>
+                    <option value="home_equity_credit">hcdr</option>
+                    <option value="higgs">higgs</option>
+                    <option value="house">house_16H</option>
+                    <option value="jannis">jannis</option>
+                    <option value="law_school_admissions">
+                      law-school-admission-bianry
+                    </option>
+                    <option value="numer_ai">numerai28.6</option>
+                    <option value="nursery">nursery</option>
+                    <option value="pol">pol</option>
+                    <option value="road_safety">road-safety</option>
+                  </select>
+                </div>
+                <div
+                  id="dd-per-plot-container"
+                  class="container is-widescreen mb-4"
                 >
-                  <option value="all">All Datasets</option>
-                  <option value="two_d_planes">2dplanes</option>
-                  <option value="amazon_employee_access">
-                    Amazon_employee_access
-                  </option>
-                  <option value="bank_marketing">
-                    Bank_marketing_data_set_UCI
-                  </option>
-                  <option value="tencent_ctr_small">
-                    Click_prediction_small
-                  </option>
-                  <option value="diabetes">Diabetes130US</option>
-                  <option value="magic_telescope">MagicTelescope</option>
-                  <option value="medical_appointments">
-                    Medical-Appointment-No-Shows
-                  </option>
-                  <option value="mini_boo_ne">MiniBooNE</option>
-                  <option value="phishing_websites">PhishingWebsites</option>
-                  <option value="adult">adult</option>
-                  <option value="credit">credit</option>
-                  <option value="credit_default">
-                    default-of-credit-card-clients
-                  </option>
-                  <option value="electricity">electrcity</option>
-                  <option value="elevators">elevators</option>
-                  <option value="home_equity_credit">hcdr</option>
-                  <option value="higgs">higgs</option>
-                  <option value="house">house_16H</option>
-                  <option value="jannis">jannis</option>
-                  <option value="law_school_admissions">
-                    law-school-admission-bianry
-                  </option>
-                  <option value="numer_ai">numerai28.6</option>
-                  <option value="nursery">nursery</option>
-                  <option value="pol">pol</option>
-                  <option value="road_safety">road-safety</option>
-                </select>
+                  <iframe
+                    id="dd-per-plot-frame"
+                    src="static/plots/dd_perf_all_plot.html"
+                    style="border: none; width: 100%; height: 500px"
+                  >
+                  </iframe>
+                </div>
+                <div
+                  id="dd-perf-table-container"
+                  class="container is-widescreen"
+                ></div>
               </div>
-              <div
-                id="dd-per-plot-container"
-                class="container is-widescreen mb-4"
-              >
-                <iframe
-                  id="dd-per-plot-frame"
-                  src="static/plots/dd_perf_all_plot.html"
-                  style="border: none; width: 100%; height: 500px"
-                >
-                </iframe>
-              </div>
-              <div
-                id="dd-perf-table-container"
-                class="container is-widescreen"
-              ></div>
             </div>
-          </div>
 
-          <div class="column mb-6">
-            <h3 class="title is-5 has-text-centered *b=8">
-              Encoder Performance
-            </h3>
-            <div class="container is-widescreen">
-              <div class="select">
-                <select
-                  id="enc-perf-select"
-                  onchange="
+            <div class="column">
+              <h3 class="title is-5 has-text-centered my-4">
+                Encoder Performance
+              </h3>
+              <div class="container is-widescreen">
+                <div class="select">
+                  <select
+                    id="enc-perf-select"
+                    onchange="
                     loadPlot(`enc_perf_${this.value}_plot`, 'enc-perf-plot-frame');
                     loadTable(`enc_perf_${this.value}_table`, 'enc-perf-table-container');
                   "
+                  >
+                    <option value="all">All Datasets</option>
+                    <option value="two_d_planes">2dplanes</option>
+                    <option value="amazon_employee_access">
+                      Amazon_employee_access
+                    </option>
+                    <option value="bank_marketing">
+                      Bank_marketing_data_set_UCI
+                    </option>
+                    <option value="tencent_ctr_small">
+                      Click_prediction_small
+                    </option>
+                    <option value="diabetes">Diabetes130US</option>
+                    <option value="magic_telescope">MagicTelescope</option>
+                    <option value="medical_appointments">
+                      Medical-Appointment-No-Shows
+                    </option>
+                    <option value="mini_boo_ne">MiniBooNE</option>
+                    <option value="phishing_websites">PhishingWebsites</option>
+                    <option value="adult">adult</option>
+                    <option value="credit">credit</option>
+                    <option value="credit_default">
+                      default-of-credit-card-clients
+                    </option>
+                    <option value="electricity">electrcity</option>
+                    <option value="elevators">elevators</option>
+                    <option value="home_equity_credit">hcdr</option>
+                    <option value="higgs">higgs</option>
+                    <option value="house">house_16H</option>
+                    <option value="jannis">jannis</option>
+                    <option value="law_school_admissions">
+                      law-school-admission-bianry
+                    </option>
+                    <option value="numer_ai">numerai28.6</option>
+                    <option value="nursery">nursery</option>
+                    <option value="pol">pol</option>
+                    <option value="road_safety">road-safety</option>
+                  </select>
+                </div>
+                <div
+                  id="enc-perf-plot-container"
+                  class="container is-widescreen mb-4"
                 >
-                  <option value="all">All Datasets</option>
-                  <option value="two_d_planes">2dplanes</option>
-                  <option value="amazon_employee_access">
-                    Amazon_employee_access
-                  </option>
-                  <option value="bank_marketing">
-                    Bank_marketing_data_set_UCI
-                  </option>
-                  <option value="tencent_ctr_small">
-                    Click_prediction_small
-                  </option>
-                  <option value="diabetes">Diabetes130US</option>
-                  <option value="magic_telescope">MagicTelescope</option>
-                  <option value="medical_appointments">
-                    Medical-Appointment-No-Shows
-                  </option>
-                  <option value="mini_boo_ne">MiniBooNE</option>
-                  <option value="phishing_websites">PhishingWebsites</option>
-                  <option value="adult">adult</option>
-                  <option value="credit">credit</option>
-                  <option value="credit_default">
-                    default-of-credit-card-clients
-                  </option>
-                  <option value="electricity">electrcity</option>
-                  <option value="elevators">elevators</option>
-                  <option value="home_equity_credit">hcdr</option>
-                  <option value="higgs">higgs</option>
-                  <option value="house">house_16H</option>
-                  <option value="jannis">jannis</option>
-                  <option value="law_school_admissions">
-                    law-school-admission-bianry
-                  </option>
-                  <option value="numer_ai">numerai28.6</option>
-                  <option value="nursery">nursery</option>
-                  <option value="pol">pol</option>
-                  <option value="road_safety">road-safety</option>
-                </select>
+                  <iframe
+                    id="enc-perf-plot-frame"
+                    src="static/plots/enc_perf_all_plot.html"
+                    style="border: none; width: 100%; height: 500px"
+                  >
+                  </iframe>
+                </div>
+                <div
+                  id="enc-perf-table-container"
+                  class="container is-widescreen"
+                ></div>
               </div>
-              <div
-                id="enc-perf-plot-container"
-                class="container is-widescreen mb-4"
-              >
-                <iframe
-                  id="enc-perf-plot-frame"
-                  src="static/plots/enc_perf_all_plot.html"
-                  style="border: none; width: 100%; height: 500px"
-                >
-                </iframe>
-              </div>
-              <div
-                id="enc-perf-table-container"
-                class="container is-widescreen"
-              ></div>
             </div>
           </div>
         </div>
 
-        <div class="mb-6">
+        <div class="container is-widescreen mb-4">
           <h3 class="title is-5 has-text-centered *b=8">
             Distill Method Performance per Classifier
           </h3>
-          <div class="container is-widescreen">
+          <div>
             <div class="select">
               <select
                 id="clf_perf_select_ds"
@@ -443,6 +448,7 @@
                   const selectedClf = document.getElementById('clf_perf_select_clf').value;
                   // console.log('you selected a datast for clf', this.value)
                   loadPlot(`clf_perf_${this.value}_${selectedClf}_plot`, 'clf-perf-plot-frame');
+                  loadPlot(`clf_perf_over_n_${this.value}_${selectedClf}_plot`, 'clf-perf-over-n-plot-frame');
                   loadTable(`clf_perf_${this.value}_${selectedClf}_table`, 'clf-perf-table-container');
                 "
               >
@@ -490,6 +496,7 @@
                 onchange="
                 const selectedDs = document.getElementById('clf_perf_select_ds').value;
                 loadPlot(`clf_perf_${selectedDs}_${this.value}_plot`, 'clf-perf-plot-frame');
+                loadPlot(`clf_perf_over_n_${selectedDs}_${this.value}_plot`, 'clf-perf-over-n-plot-frame');
                 loadTable(`clf_perf_${selectedDs}_${this.value}_table`, 'clf-perf-table-container');
                 "
               >
@@ -504,16 +511,23 @@
                 <option value="ResNet">ResNet</option>
               </select>
             </div>
-            <div
-              id="clf-perf-plot-container"
-              class="container is-widescreen mb-4"
-            >
-              <iframe
-                id="clf-perf-plot-frame"
-                src="static/plots/clf_perf_all_FTTransformer_plot.html"
-                style="border: none; width: 100%; height: 500px"
-              >
-              </iframe>
+            <div class="columns is-widescreen mb-4">
+              <div id="clf-perf-plot-container" class="column">
+                <iframe
+                  id="clf-perf-plot-frame"
+                  src="static/plots/clf_perf_all_FTTransformer_plot.html"
+                  style="border: none; width: 100%; height: 500px"
+                >
+                </iframe>
+              </div>
+              <div id="clf-perf-over-n-plot-container" class="column">
+                <iframe
+                  id="clf-perf-over-n-plot-frame"
+                  src="static/plots/clf_perf_over_n_all_FTTransformer_plot.html"
+                  style="border: none; width: 100%; height: 500px"
+                >
+                </iframe>
+              </div>
             </div>
             <div
               id="clf-perf-table-container"
@@ -521,9 +535,9 @@
             ></div>
           </div>
         </div>
-        <div class="mb-6">
+        <div class="container is-widescreen mb-4">
           <h3 class="title is-5 has-text-centered *b=8">Dataset Statistics</h3>
-          <div class="container is-widescreen mb-4">
+          <div>
             <iframe
               src="static/plots/dataset_stats_plot.html"
               style="border: none; width: 100%; height: 500px"
