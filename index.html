@@ -299,10 +299,11 @@
             <h3 class="title is-5 has-text-centered *b=8">
               Distill Method Performance
             </h3>
-            <!-- <div> -->
             <div class="container is-widescreen">
               <div id="dd_perf_select" class="select">
-                <select>
+                <select
+                  onchange="loadPlot(`dd_perf_${this.value}_plot`, 'dd-per-plot-frame'); loadTable(`dd_perf_${this.value}_table`, 'dd-perf-table-container');"
+                >
                   <option value="all">All Datasets</option>
                   <option value="two_d_planes">2dplanes</option>
                   <option value="amazon_employee_access">
@@ -364,11 +365,13 @@
               Encoder Performance
             </h3>
             <div class="container is-widescreen">
-              <!-- <div> -->
               <div class="select">
                 <select
                   id="enc-perf-select"
-                  onchange="loadPlot(`enc_perf_${this.value}_plot`, 'enc-per-plot-frame'); loadTable(`enc_perf_${this.value}_table`, 'enc-perf-table-container');"
+                  onchange="
+                    loadPlot(`enc_perf_${this.value}_plot`, 'enc-perf-plot-frame');
+                    loadTable(`enc_perf_${this.value}_table`, 'enc-perf-table-container');
+                  "
                 >
                   <option value="all">All Datasets</option>
                   <option value="two_d_planes">2dplanes</option>
@@ -409,11 +412,11 @@
                 </select>
               </div>
               <div
-                id="enc-per-plot-container"
+                id="enc-perf-plot-container"
                 class="container is-widescreen mb-4"
               >
                 <iframe
-                  id="enc-per-plot-frame"
+                  id="enc-perf-plot-frame"
                   src="static/plots/enc_perf_all_plot.html"
                   style="border: none; width: 100%; height: 500px"
                 >
@@ -426,13 +429,21 @@
             </div>
           </div>
         </div>
+
         <div class="mb-6">
           <h3 class="title is-5 has-text-centered *b=8">
-            Classifier Performance
+            Distill Method Performance per Classifier
           </h3>
           <div class="container is-widescreen">
-            <div id="clf_perf_select" class="select">
-              <select>
+            <div class="select">
+              <select
+                id="clf_perf_select_ds"
+                onchange="
+                  const selectedClf = document.getElementById('clf_perf_select_clf').value;
+                  console.log('you selected a datast for clf', this.value)
+                  loadPlot(`clf_perf_${this.value}_${selectedClf}_plot`, 'clf-perf-plot-frame');
+                "
+              >
                 <option value="all">All Datasets</option>
                 <option value="two_d_planes">2dplanes</option>
                 <option value="amazon_employee_access">
@@ -471,6 +482,41 @@
                 <option value="road_safety">road-safety</option>
               </select>
             </div>
+            <div class="select">
+              <select
+                id="clf_perf_select_clf"
+                onchange="
+                const selectedDs = document.getElementById('clf_perf_select_ds').value;
+                loadPlot(`clf_perf_${selectedDs}_${this.value}_plot`, 'clf-perf-plot-frame');
+                // loadTable(`enc_perf_${this.value}_table`, 'enc-perf-table-container');
+                "
+              >
+                <option value="FTTransformer">FT-Transformer</option>
+                <option value="LogisticRegression">Logistic Regression</option>
+                <option value="MLPClassifier">MLP</option>
+                <option value="GaussianNB">Naive Bayes</option>
+                <option value="KNeighborsClassifier">
+                  <i>K</i> Nearest Neighbors
+                </option>
+                <option value="ResNet">ResNet</option>
+                <option value="XGB">XGBoost</option>
+              </select>
+            </div>
+            <div
+              id="clf-perf-plot-container"
+              class="container is-widescreen mb-4"
+            >
+              <iframe
+                id="clf-perf-plot-frame"
+                src="static/plots/clf_perf_all_FTTransformer_plot.html"
+                style="border: none; width: 100%; height: 500px"
+              >
+              </iframe>
+            </div>
+            <div
+              id="clf-perf-table-container"
+              class="container is-widescreen"
+            ></div>
           </div>
         </div>
         <div class="mb-6">
