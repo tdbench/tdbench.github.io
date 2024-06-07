@@ -91,6 +91,7 @@
         loadTable("dataset_stats_table", "ds-stats-table-container");
         loadTable("enc_perf_all_table", "enc-perf-table-container");
         loadTable("dd_perf_all_table", "dd-perf-table-container");
+        loadTable("clf_perf_all_FTTransformer_table", "clf-perf-table-container");
       });
     </script>
   </head>
@@ -440,8 +441,9 @@
                 id="clf_perf_select_ds"
                 onchange="
                   const selectedClf = document.getElementById('clf_perf_select_clf').value;
-                  console.log('you selected a datast for clf', this.value)
+                  // console.log('you selected a datast for clf', this.value)
                   loadPlot(`clf_perf_${this.value}_${selectedClf}_plot`, 'clf-perf-plot-frame');
+                  loadTable(`clf_perf_${this.value}_${selectedClf}_table`, 'clf-perf-table-container');
                 "
               >
                 <option value="all">All Datasets</option>
@@ -488,18 +490,18 @@
                 onchange="
                 const selectedDs = document.getElementById('clf_perf_select_ds').value;
                 loadPlot(`clf_perf_${selectedDs}_${this.value}_plot`, 'clf-perf-plot-frame');
-                // loadTable(`enc_perf_${this.value}_table`, 'enc-perf-table-container');
+                loadTable(`clf_perf_${selectedDs}_${this.value}_table`, 'clf-perf-table-container');
                 "
               >
-                <option value="FTTransformer">FT-Transformer</option>
                 <option value="LogisticRegression">Logistic Regression</option>
                 <option value="MLPClassifier">MLP</option>
                 <option value="GaussianNB">Naive Bayes</option>
                 <option value="KNeighborsClassifier">
                   <i>K</i> Nearest Neighbors
                 </option>
-                <option value="ResNet">ResNet</option>
                 <option value="XGB">XGBoost</option>
+                <option value="FTTransformer">FT-Transformer</option>
+                <option value="ResNet">ResNet</option>
               </select>
             </div>
             <div
