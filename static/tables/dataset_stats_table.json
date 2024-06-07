@@ -1,0 +1,220 @@
+{
+  "columns": [
+    "Dataset",
+    "# Instances",
+    "# Features",
+    "# Continuous Features",
+    "# Categorical Features",
+    "# Class 0",
+    "# Class 1"
+  ],
+  "values": [
+    [
+      "<a href=\"https://api.openml.org/d/727\">2dplanes</a>",
+      40768,
+      10,
+      10,
+      0,
+      20420,
+      20348
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/4135\">Amazon_employee_access</a>",
+      32769,
+      9,
+      8,
+      1,
+      1897,
+      30872
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/44234\">Bank_marketing_data_set_UCI</a>",
+      45211,
+      16,
+      7,
+      9,
+      39922,
+      5289
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/1220\">Click_prediction_small</a>",
+      39948,
+      11,
+      11,
+      0,
+      33220,
+      6728
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/45022\">Diabetes130US</a>",
+      71090,
+      7,
+      7,
+      0,
+      35545,
+      35545
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/1120\">MagicTelescope</a>",
+      19020,
+      11,
+      11,
+      0,
+      12332,
+      6688
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/43439\">Medical-Appointment-No-Shows</a>",
+      110527,
+      13,
+      10,
+      3,
+      88208,
+      22319
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/44088\">MiniBooNE</a>",
+      72998,
+      50,
+      50,
+      0,
+      36499,
+      36499
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/4534\">PhishingWebsites</a>",
+      11055,
+      30,
+      0,
+      30,
+      4898,
+      6157
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/1590\">adult</a>",
+      48842,
+      14,
+      6,
+      8,
+      37155,
+      11687
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/45027\">credit</a>",
+      16714,
+      10,
+      10,
+      0,
+      8357,
+      8357
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/45020\">default-of-credit-card-clients</a>",
+      13272,
+      20,
+      20,
+      0,
+      6636,
+      6636
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/151\">electrcity</a>",
+      45312,
+      8,
+      7,
+      1,
+      26075,
+      19237
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/846\">elevators</a>",
+      16599,
+      18,
+      18,
+      0,
+      5130,
+      11469
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/45071\">hcdr</a>",
+      10000,
+      22,
+      22,
+      0,
+      5000,
+      5000
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/23512\">higgs</a>",
+      98050,
+      28,
+      28,
+      0,
+      46223,
+      51827
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/821\">house_16H</a>",
+      22784,
+      16,
+      16,
+      0,
+      6744,
+      16040
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/45021\">jannis</a>",
+      57580,
+      54,
+      54,
+      0,
+      28790,
+      28790
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/43890\">law-school-admission-bianry</a>",
+      20800,
+      11,
+      6,
+      5,
+      6694,
+      14106
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/23517\">numerai28.6</a>",
+      96320,
+      21,
+      21,
+      0,
+      47662,
+      48658
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/959\">nursery</a>",
+      12960,
+      8,
+      0,
+      8,
+      8640,
+      4320
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/722\">pol</a>",
+      15000,
+      48,
+      48,
+      0,
+      5041,
+      9959
+    ],
+    [
+      "<a href=\"https://api.openml.org/d/44161\">road-safety</a>",
+      111762,
+      32,
+      29,
+      3,
+      55881,
+      55881
+    ]
+  ]
+}
