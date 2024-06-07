@@ -58,6 +58,7 @@
 
     <!-- <script src="static/js/index.js"></script> -->
     <script src="static/js/load-table.js"></script>
+    <script src="static/js/load-plot.js"></script>
     <script>
       window.HELP_IMPROVE_VIDEOJS = false;
 
@@ -287,61 +288,109 @@
         <div class="mb-6">
           <h3 class="title is-5 has-text-centered *b=8">Encoder Performance</h3>
           <div class="container is-widescreen">
-            <div id="enc_perf_select" class="select">
-              <select>
+            <div class="select">
+              <select
+                id="enc-perf-select"
+                onchange="loadPlot(`enc_perf_${this.value}_plot`, 'enc-per-plot-frame')"
+              >
                 <option value="all">All Datasets</option>
                 <option value="two_d_planes">2dplanes</option>
-                <option value="amazon_employee_access">Amazon_employee_access</option>
-                <option value="bank_marketing">Bank_marketing_data_set_UCI</option>
-                <option value="tencent_ctr_small">Click_prediction_small</option>
+                <option value="amazon_employee_access">
+                  Amazon_employee_access
+                </option>
+                <option value="bank_marketing">
+                  Bank_marketing_data_set_UCI
+                </option>
+                <option value="tencent_ctr_small">
+                  Click_prediction_small
+                </option>
                 <option value="diabetes">Diabetes130US</option>
                 <option value="magic_telescope">MagicTelescope</option>
-                <option value="medical_appointments">Medical-Appointment-No-Shows</option>
+                <option value="medical_appointments">
+                  Medical-Appointment-No-Shows
+                </option>
                 <option value="mini_boo_ne">MiniBooNE</option>
                 <option value="phishing_websites">PhishingWebsites</option>
                 <option value="adult">adult</option>
                 <option value="credit">credit</option>
-                <option value="credit_default">default-of-credit-card-clients</option>
+                <option value="credit_default">
+                  default-of-credit-card-clients
+                </option>
                 <option value="electricity">electrcity</option>
                 <option value="elevators">elevators</option>
                 <option value="home_equity_credit">hcdr</option>
                 <option value="higgs">higgs</option>
                 <option value="house">house_16H</option>
                 <option value="jannis">jannis</option>
-                <option value="law_school_admissions">law-school-admission-bianry</option>
+                <option value="law_school_admissions">
+                  law-school-admission-bianry
+                </option>
                 <option value="numer_ai">numerai28.6</option>
                 <option value="nursery">nursery</option>
                 <option value="pol">pol</option>
                 <option value="road_safety">road-safety</option>
               </select>
             </div>
+            <div
+              id="enc-per-plot-container"
+              class="container is-widescreen mb-4"
+            >
+              <iframe
+                id="enc-per-plot-frame"
+                src="static/plots/enc_perf_all_plot.html"
+                style="border: none; width: 100%; height: 500px"
+              >
+              </iframe>
+            </div>
+            <!-- <script> -->
+            <!--   document -->
+            <!--     .getElementById("enc-perf-select") -->
+            <!--     .addEventListener("change", (event) => -->
+            <!--       console.log(event) -->
+            <!--       // loadPlot(`enc_perf_${event.value}_plot`, "enc-per-plot-container"), -->
+            <!--     ); -->
+            <!-- </script> -->
           </div>
         </div>
         <div class="mb-6">
-          <h3 class="title is-5 has-text-centered *b=8">Distill Method Performance</h3>
+          <h3 class="title is-5 has-text-centered *b=8">
+            Distill Method Performance
+          </h3>
           <div class="container is-widescreen">
             <div id="dd_perf_select" class="select">
               <select>
                 <option value="all">All Datasets</option>
                 <option value="two_d_planes">2dplanes</option>
-                <option value="amazon_employee_access">Amazon_employee_access</option>
-                <option value="bank_marketing">Bank_marketing_data_set_UCI</option>
-                <option value="tencent_ctr_small">Click_prediction_small</option>
+                <option value="amazon_employee_access">
+                  Amazon_employee_access
+                </option>
+                <option value="bank_marketing">
+                  Bank_marketing_data_set_UCI
+                </option>
+                <option value="tencent_ctr_small">
+                  Click_prediction_small
+                </option>
                 <option value="diabetes">Diabetes130US</option>
                 <option value="magic_telescope">MagicTelescope</option>
-                <option value="medical_appointments">Medical-Appointment-No-Shows</option>
+                <option value="medical_appointments">
+                  Medical-Appointment-No-Shows
+                </option>
                 <option value="mini_boo_ne">MiniBooNE</option>
                 <option value="phishing_websites">PhishingWebsites</option>
                 <option value="adult">adult</option>
                 <option value="credit">credit</option>
-                <option value="credit_default">default-of-credit-card-clients</option>
+                <option value="credit_default">
+                  default-of-credit-card-clients
+                </option>
                 <option value="electricity">electrcity</option>
                 <option value="elevators">elevators</option>
                 <option value="home_equity_credit">hcdr</option>
                 <option value="higgs">higgs</option>
                 <option value="house">house_16H</option>
                 <option value="jannis">jannis</option>
-                <option value="law_school_admissions">law-school-admission-bianry</option>
+                <option value="law_school_admissions">
+                  law-school-admission-bianry
+                </option>
                 <option value="numer_ai">numerai28.6</option>
                 <option value="nursery">nursery</option>
                 <option value="pol">pol</option>
@@ -351,30 +400,44 @@
           </div>
         </div>
         <div class="mb-6">
-          <h3 class="title is-5 has-text-centered *b=8">Classifier Performance</h3>
+          <h3 class="title is-5 has-text-centered *b=8">
+            Classifier Performance
+          </h3>
           <div class="container is-widescreen">
             <div id="clf_perf_select" class="select">
               <select>
                 <option value="all">All Datasets</option>
                 <option value="two_d_planes">2dplanes</option>
-                <option value="amazon_employee_access">Amazon_employee_access</option>
-                <option value="bank_marketing">Bank_marketing_data_set_UCI</option>
-                <option value="tencent_ctr_small">Click_prediction_small</option>
+                <option value="amazon_employee_access">
+                  Amazon_employee_access
+                </option>
+                <option value="bank_marketing">
+                  Bank_marketing_data_set_UCI
+                </option>
+                <option value="tencent_ctr_small">
+                  Click_prediction_small
+                </option>
                 <option value="diabetes">Diabetes130US</option>
                 <option value="magic_telescope">MagicTelescope</option>
-                <option value="medical_appointments">Medical-Appointment-No-Shows</option>
+                <option value="medical_appointments">
+                  Medical-Appointment-No-Shows
+                </option>
                 <option value="mini_boo_ne">MiniBooNE</option>
                 <option value="phishing_websites">PhishingWebsites</option>
                 <option value="adult">adult</option>
                 <option value="credit">credit</option>
-                <option value="credit_default">default-of-credit-card-clients</option>
+                <option value="credit_default">
+                  default-of-credit-card-clients
+                </option>
                 <option value="electricity">electrcity</option>
                 <option value="elevators">elevators</option>
                 <option value="home_equity_credit">hcdr</option>
                 <option value="higgs">higgs</option>
                 <option value="house">house_16H</option>
                 <option value="jannis">jannis</option>
-                <option value="law_school_admissions">law-school-admission-bianry</option>
+                <option value="law_school_admissions">
+                  law-school-admission-bianry
+                </option>
                 <option value="numer_ai">numerai28.6</option>
                 <option value="nursery">nursery</option>
                 <option value="pol">pol</option>
@@ -385,31 +448,17 @@
         </div>
         <div class="mb-6">
           <h3 class="title is-5 has-text-centered *b=8">Dataset Statistics</h3>
-          <div class="container is-widescreen">
+          <div class="container is-widescreen mb-4">
             <iframe
               src="static/plots/dataset_stats_plot.html"
               style="border: none; width: 100%; height: 500px"
             ></iframe>
           </div>
+          <div
+            id="ds-stats-table-container"
+            class="container is-widescreen"
+          ></div>
         </div>
-        <div class="mb-6">
-          <h3 class="title is-5 has-text-centered *b=8">Dataset Statistics</h3>
-          <div id="ds-stats-table-container" class="container is-widescreen">
-            <!-- <table -->
-            <!--   id="ds-stats-table-container" -->
-            <!--   class="table is-fullwidth is-striped is-hoverable is-fullwidth" -->
-            <!-- ></table> -->
-          </div>
-          <!-- <iframe -->
-          <!--   src="static/tables/dataset_stats_table.html" -->
-          <!--   style="border: none; width: 100%; height: 500px" -->
-          <!-- ></iframe> -->
-          <!-- <table class="table is-fullwidth is-striped is-hoverable is-fullwidth"> -->
-          <!--   <thead> -->
-          <!--   </thead> -->
-          <!-- </table> -->
-        </div>
-        <!-- <div id="dataset-stats"></div> -->
       </div>
     </section>
 

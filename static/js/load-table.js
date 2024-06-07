@@ -31,7 +31,7 @@ function loadTable(tableName, tableContainerID) {
     .then((response) => response.json())
     .then((data) => {
       var table = buildTable(data)
-      document.getElementById("ds-stats-table-container").appendChild(table)
+      document.getElementById(tableContainerID).appendChild(table)
     })
     .catch((error) => console.error("Error loading table:", error));
 };
