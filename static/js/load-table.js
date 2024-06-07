@@ -1,12 +1,12 @@
 function buildTable(data){
-  var table = document.createElement("table");
+  const table = document.createElement("table");
   table.className = "table is-fullwidth is-striped is-hoverable";
-  var thead = document.createElement("thead");
-  var tbody = document.createElement("tbody");
-  var theadRow = document.createElement("tr");
+  const thead = document.createElement("thead");
+  const tbody = document.createElement("tbody");
+  const theadRow = document.createElement("tr");
 
-  for (var col of data.columns) {
-    var th = document.createElement("th");
+  for (const col of data.columns) {
+    const th = document.createElement("th");
     th.innerHTML = col;
     theadRow.appendChild(th);
   }
@@ -14,9 +14,9 @@ function buildTable(data){
   table.appendChild(thead);
 
   data.values.forEach(function(row) {
-    var tr = document.createElement("tr");
-    for (var cell of row) {
-      var td = document.createElement("td");
+    const tr = document.createElement("tr");
+    for (const cell of row) {
+      const td = document.createElement("td");
       td.innerHTML = cell;
       tr.appendChild(td);
     }
@@ -30,8 +30,14 @@ function loadTable(tableName, tableContainerID) {
   fetch(`static/tables/${tableName}.json`)
     .then((response) => response.json())
     .then((data) => {
-      var table = buildTable(data)
-      document.getElementById(tableContainerID).appendChild(table)
+      const table = buildTable(data);
+      // table.id = tableContainerID.replace("-container", "")
+      // const prevTable = getElement
+      const tableContainer = document.getElementById(tableContainerID);
+      for (const child of tableContainer.children) {
+        tableContainer.removeChild(child)
+      }
+      tableContainer.appendChild(table);
     })
     .catch((error) => console.error("Error loading table:", error));
 };
